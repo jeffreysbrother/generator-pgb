@@ -67,7 +67,7 @@ Generator.prototype.plugItInPlugItIn = function() {
 		me = this;
 
 	// Display welcome message
-	this.logger.log(art.wp, {logPrefix: ''});
+	// this.logger.log(art.wp, {logPrefix: ''});
 	
 	(function getInput() {
 		me.prompt({
