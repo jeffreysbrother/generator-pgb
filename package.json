@@ -1,16 +1,17 @@
 {
-  "name": "generator-wordpress",
-  "version": "2.0.2",
-  "description": "A Yeoman generator for WordPress",
+  "name": "generator-pgb",
+  "version": "1.0.0",
+  "description": "A Yeoman generator - WordPress plus pgb theme and plugins",
   "keywords": [
     "yeoman-generator",
     "wordpress",
+    "ninthlink",
     "yeoman",
     "generator",
     "cli"
   ],
   "main": "app/index.js",
-  "author": "Wes Todd",
+  "author": "James Cool and Wes Todd",
   "license": "BSD",
   "dependencies": {
     "chalk": "^0.2.1",
@@ -23,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/wesleytodd/YeoPress.git"
+    "url": "git://github.com/jeffreysbrother/generator-pgb.git"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
