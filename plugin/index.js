@@ -98,7 +98,7 @@ Generator.prototype.plugItInPlugItIn = function() {
 	})();
 
 	function installPlugin(plugin, cb) {
-		me.tarball('https://github.com/' + plugin + '/archive/master.zip', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins', plugin), cb);
+		me.tarball('https://github.com/' + plugin + '/archive/master.zip', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins'), cb);
 	}
 
 };
