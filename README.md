@@ -1,52 +1,106 @@
-# YeoPress Default Theme
+# ProGo Base
+ProGo Base is WordPress, Underscores, Bootstrap, Theme Hook Alliance, get-out-the-way-lemme-do-it all-in-one "Theme Framework".
 
-This base theme is packed full of goodies to get your WordPress development process off the ground.  Not only does it come with a decent amount of WP Theme files, it also gets you setup with a `Gruntfile` with some goodies like LiveReload, Sass compilation and RequireJS support.
+Useful as a Base theme, stand-alone, starting point to fork and rename and build on, or a combination of any ideas.
 
-Once you have run the setup process with YeoPress, you are ready to start working with your theme.  So change directory into the theme directory and run grunt:
+Built by ProGo, a collection of Developers and Designers and Marketers working together to create a pure foundation that we could use, with hopes that others might find it useful as well.
 
-	$ cd wp-content/themes/your-theme-name-chosen-at-setup
-	$ grunt
+## Features
+#### Action-hook based template parts
+Use add/remove_action to modify template structure via plugin, rather than writing a child theme every time
 
-This will fire up the watch task which will listen for changes in your files and trigger the appropriate update tasks and will reload the browser via LiveReload.
+## Installation
 
-## RequireJS
+1. In your admin panel, go to Appearance -> Themes and click the Add New button.
+2. Click Upload and Choose File, then select the theme's ZIP file. Click Install Now.
+3. Click Activate to use your new theme right away.
 
-This theme integrates RequireJS for Javascript dependency management and lazy-loading.  There are two tasks built into the `Gruntfile` to help manage and build your require configuration: `bower` & `requirejs`.
+## Frequently Asked Questions
 
-### Bower Task
+### Quick Specs
 
-	$ grunt bower
+* Contributors: monkishtypist, chousmith, edurose, stokesman, progothemes
+* Tags: bootstrap, light, custom-header, custom-menu, fixed-layout, responsive-layout, two-columns
+* Requires at least: 4.1
+* Tested up to: 4.3
+* License: GPLv2 or later
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The `bower` task will take any packages installed via Bower, and add them to the require config.  There is one caveat at the moment, because the `Gruntfile` is in the theme and not in the root of the site, the `baseDir` setting causes this task to build incorrect paths.  All that needs to be done is to remove the initial `../`'s that are added.  For example, here is the config after running the task:
+### Coming Soon
 
-	"baseUrl": "content/themes/yeopress/js",
-	"paths": {
-		"jquery": "../../../../js/vendor/jquery/jquery"
-	}
+Once we figure out what FAQs may be, they may be added here and there. This is a work in progress. Thank you for bearing with us.
 
-What we really wanted was just the part that reads `vendor/jquery/jquery`, so just remove the part we don't need and you will be good to go:
+## Change Log
 
-	"baseUrl": "content/themes/yeopress/js",
-	"paths": {
-		"jquery": "vendor/jquery/jquery"
-	}
+### Version 1.1.1
+* Fix bug preventing custom page width overrides
+* Added additional filters to the custom page width process `'pgb_default_page_width', 'pgb_page_width_class', 'pgb_page_width', 'pgb_page_width_options'`
 
-### RequireJS Task
+### Version 1.1.0
+* Updated title tag support per https://make.wordpress.org/themes/2015/08/25/title-tag-support-now-required/
+* Added theme text domain
+* Updated string translation support
+* Added .pot file
+* Removed `upload-theme.php`
 
-	$ grunt requirejs
+### Version 1.0.2
+* Updated navbar customizer layouts
 
-The second task, `requirejs` is used to build an optimized require file.  By default the optimized file is output to `js/optimized.js`, but this can be changed in the `Gruntfile`.  For more information on how to configure this setting see [here](https://npmjs.org/package/grunt-contrib-requirejs) and [here](http://requirejs.org/docs/optimization.html).
+### Version 1.0.1
+* Page post titles updated, archive titles added and formatted
+* Search Results page titles fixed
+* CSS cleaned up and more efficient for navbars
+* JS updated to OOP
 
-## Build Task
+### Version 1.0.0
+* New functions to return specific pages, page arrays, and more
+* New validate.js for form validation (beta)
+* New admin-side pgb.js
+* Login/Logout menu link now part of Menu Customizer
+* Updated bootstrap nav-walker
+* Updated customizer options and organization for WP 4.3
+* Renamed Nav positions for better compatibility
+* Page layout with header for each page (moving toward material design)
+* Footer updates to include menu position and copyright section
+* Page and post titles moved to masthead
+* Subtitles for pages
+* Renamed files: header to masthead, navtop to navbar
 
-	$ grunt build
+### Version 0.8.0
+* Added WooCommerce Support
 
-This task builds an optimized version of the theme for production.  It runs the following tasks:
+### Version 0.7.0
+* New Login/LogOut menu item and controller class
+* New Customizer Multi-Select Controller
 
-- jshint
-- sass:production
-- imagemin:production
-- svgmin:production
-- requirejs:production
+### Version 0.6.3
+* Added custom breadcrumbs functionality
+* Breadcrumbs include Schema markup
 
-For the image min tasks, the files are saved directly over the original files.  The sass production builds minified css for the live site in the css directory.  The only one that will take some configuration and a change to your php is the requirejs task.  This task generates optimized files using the `r.js` tool, and comes packaged to output one file called `optimized.min.js` which you would then need to enqueue through the WordPress `functions.php` file.
+### Version 0.6.2
+* Added Google Rich Snippets action to header https://developers.google.com/structured-data/rich-snippets/?hl=en
+
+### Version 0.6.1
+* Rewrite "Add Media" HTML output to include Bootstrap classes
+
+### Version 0.6.0
+* Post formats functionality rebuilt - now finds first instance of type and displays on blog page
+* Updated JS for centering main nav logo
+
+### Version 0.5.4
+* Customizer updates for legibility
+* Removed customized actions, rely on priority instead
+* More CSS updates for themes and Jumbo compatibility
+
+### Version 0.5.3
+
+* Fixed customizer error calling sanitize functions statically
+* Body classes and CSS added for Bootstrap theme specific CSS
+* Updated customizer labels for better clarity
+* Updated customizer CSS for image rendering in sidebar
+* New customizeable actions after each `block-{name}.php`
+* Commented out Post formats meta boxes
+
+### Version 0.5.2
+
+* Changed `pgb_posted_on` template tag to action for better control

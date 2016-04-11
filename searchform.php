@@ -1,9 +1,20 @@
-<form action="<?php bloginfo('siteurl'); ?>" class="search-form">
-    <div class="input-wrap search">
-        <label for="input-s" class="screen-reader-text">Search for:</label>
-        <input type="search" id="input-s" name="s" />
-    </div>
-    <div class="input-wrap submit">
-        <input type="submit" value="Search" class="button" />
+<?php
+/**
+ * The template for displaying search forms in pgb
+ *
+ * @package pgb
+ */
+?>
+<form class="" role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+	<label class="sr-only" for="s">Search</label>
+	<div class="input-group">
+		<input type="search" class="form-control pull-right" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'pgb' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php _ex( 'Search for:', 'label', 'pgb' ); ?>">
+		<span class="input-group-btn">
+			<button type="submit" class="btn btn-default">
+				<span class="fa fa-search">
+					<span class="sr-only">Search</span>
+				</span>
+			</button>
+		</span>
 	</div>
 </form>

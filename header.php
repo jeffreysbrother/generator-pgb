@@ -1,34 +1,46 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" <?php language_attributes() ?>><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <?php language_attributes() ?>><![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" <?php language_attributes() ?>><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" <?php language_attributes() ?>><!--<![endif]-->
-    <head>
-        <meta charset="<?php bloginfo( 'charset' ) ?>">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width">
-        <title><?php wp_title( '|', true, 'right' ) ?></title>
-		<meta name="author" content="">
-		<link rel="author" href="">
-		<?php wp_head() ?>
-    </head>
-    <body <?php body_class() ?>>
-		<header id="page-header">
-			<h1 id="page-logo">
-				<?php if (!is_front_page()): ?>
-					<a href="<?php bloginfo('url') ?>" title="<?php bloginfo('name') ?> - <?php bloginfo('description') ?>">
-						<?php bloginfo('name') ?>
-					</a>
-				<?php else: ?>
-					<span>
-						<?php bloginfo('name') ?>
-					</span>
-				<?php endif; ?>
-			</h1>
-			<?php wp_nav_menu(array(
-				'theme_location' => 'main-nav',
-				'container'      => 'nav',
-				'container_id'   => 'primary-nav'
-			)) ?>
-		</header>
-		<div id="content-wrap">
+<?php
+/**
+ * The header for our theme.
+ *
+ * Displays all of the <head> section and everything up till <div id="content">
+ *
+ * @package pgb
+ */
+?><!DOCTYPE html>
+<?php tha_html_before(); ?>
+<html <?php language_attributes(); ?>>
+<head>
+
+    <?php tha_head_top(); ?>
+
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
+    <?php tha_head_bottom(); ?>
+
+    <?php wp_head(); ?>
+
+</head>
+
+<body <?php body_class(); ?>>
+
+    <?php tha_body_top(); ?>
+    <?php tha_header_before(); ?>
+    <?php do_action( 'before' ); ?>
+
+    <?php if ( has_nav_menu('secondary') || '1' === pgb_get_option( 'nav_search' ) ) pgb_block_navbartop(); ?>
+
+    <?php pgb_block_navbar(); ?>
+
+    <?php pgb_block_masthead(); ?>
+
+    <?php tha_header_after();  ?>
+    <div id="page-content-wrapper" class="page-content-wrapper-left">
+
+        <?php tha_content_before(); ?>
+        <div class="main-content">
+            <div class="container">
+                <div class="row">
