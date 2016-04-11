@@ -1,31 +1,20 @@
-![image](http://wesleytodd.com/media/pages/index/yeopress.jpg)
+# Yeoman pgb Generator
 
-# YeoPress
-
-The officially un-official [Yeoman](https://github.com/yeoman/yeoman) Generator for [WordPress](http://wordpress.org/).  I magically take you from scratching your head wondering where to start, all the way to running the famous 5-minute install.  I have configuration options that will WOW you.  If you use Git, I can *git* you off the ground with WordPress as a submodule just by following a couple of prompts.  Have a custom base theme you always start your projects off with?  You can install that too, either straight from GitHub or by pointing me to a tarball.  Other things I do:
-
-- Custom directory configuration
-- Install WordPress as a Git submodule for easy version controlled updates
-- Theme init hook for when you install a new theme
-- Permission setting on install
-- Create your database, all you have to do is make me a user
-- Built in Vagrant configuration
-- *New* Set custom defaults with `.yeopress` files
-- *New* Environment based wp-config files, `local-config.php`
+This is a modified version of Wesley Todd's [YeoPress](https://github.com/wesleytodd/YeoPress).
 
 ## How To Use
 
 If you do not already have the Yeoman toolset installed do so now, and might as well install me at the same time *(NOTE: don't type the `$`)*:
 
-	$ npm install -g yo generator-wordpress
+	$ npm install -g yo generator-pgb
 
 While running if you get errors try running as super user:
 
-	$ sudo npm install -g yo generator-wordpress
+	$ sudo npm install -g yo generator-pgb
 
 And run me:
 
-	$ yo wordpress
+	$ yo pgb
 
 Follow my prompts and WA-BAM....ASCII art!!!!
 
@@ -54,11 +43,11 @@ You probably want to be able to quickly zip through your install with similar se
 }
 ```
 
-For a full example, open up the local `.yeopress` file that is created by the generator.  This file is located in the directory you ran `yo wordpress` in.
+For a full example, open up the local `.yeopress` file that is created by the generator.  This file is located in the directory you ran `yo pgb` in.
 
 ## Installing WordPress Plugins
 
-New with `v1.4.0` is a subgenerator for installing plugins, `yo wordpress:plugin`.  You can supply a comma delimited list of plugin slugs to download.  YeoPress will download and unzip those plugins into your content directory.
+New with `v1.4.0` is a subgenerator for installing plugins, `yo pgb:plugin`.  You can supply a comma delimited list of plugin slugs to download.  YeoPress will download and unzip those plugins into your content directory.
 
 ### Visual Learner??
 
@@ -82,4 +71,3 @@ Custom themes can be installed from GitHub or a Tarball.  Once installed, they a
 - RequireJS ([grunt-contrib-requirejs](https://npmjs.org/package/grunt-contrib-requirejs))
 
 More information on themes [here](https://github.com/wesleytodd/YeoPress/wiki/Themes) & [here](http://wesleytodd.com/2013/5/yeopress-themes.html)
-

@@ -11,7 +11,7 @@
     "cli"
   ],
   "main": "app/index.js",
-  "author": "James Cool and Wes Todd",
+  "author": "James Cool and Wesley Todd",
   "license": "BSD",
   "dependencies": {
     "chalk": "^0.2.1",
