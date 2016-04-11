@@ -71,10 +71,10 @@ Generator.prototype.plugItInPlugItIn = function() {
 	
 	(function getInput() {
 		me.prompt({
-			message: 'Plugins to install (ex. wordpress-importer, wp-custom-admin-bar)',
+			message: 'Which plugins would you like to install? (enter a comma-delimited list)',
 			name: 'plugins',
 			filter: function(input) {
-				var plugins = ['updraftplus'],
+				var plugins = [],
 					items = input.split(',');
 				for (var i in items) {
 					plugins.push(items[i].trim());
