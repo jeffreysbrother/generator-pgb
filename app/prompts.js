@@ -181,7 +181,7 @@ module.exports = function(advanced, defaults) {
 		}, {
 			message: 'GitHub username',
 			name: 'themeUser',
-			default: defaults.themeUser || 'wesleytodd',
+			default: defaults.themeUser || 'jeffreysbrother',
 			validate: requiredValidate,
 			when: function(res) {
 				return !!res.installTheme && res.themeType == 'git';
@@ -189,7 +189,7 @@ module.exports = function(advanced, defaults) {
 		}, {
 			message: 'GitHub repository name',
 			name: 'themeRepo',
-			default: defaults.themeRepo || 'YeoPress',
+			default: defaults.themeRepo || 'generator-pgb',
 			validate: requiredValidate,
 			when: function(res) {
 				return !!res.installTheme && res.themeType == 'git';
