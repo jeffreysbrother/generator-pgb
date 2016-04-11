@@ -69,55 +69,23 @@ Generator.prototype.plugItInPlugItIn = function() {
 	// Display welcome message
 	this.logger.log(art.wp, {logPrefix: ''});
 	
-	(function getInput() {
-		me.prompt({
-			message: 'Which WordPress plugins would you like to install? (enter a comma-delimited list)',
-			name: 'plugins',
-			filter: function(input) {
-				var plugins = [],
-					items = input.split(',');
-				for (var i in items) {
-					plugins.push(items[i].trim());
-				}
-				return plugins;
-			}
-		}, function(input) {
-			var plugins = input.plugins;
-			var len = plugins.length;
-			var next = function(i) {
-				installPlugin(plugins[i], function() {
-					if (i < len - 1) {
-						next(++i);
-					} else {
-						done();
-					}
-				});
-			};
-			next(0);
-		});
-	})();
-
-	function installPlugin(plugin, cb) {
-		me.tarball('https://downloads.wordpress.org/plugin/' + plugin + '.zip', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins', plugin), cb);
-	}
-	
-	// (function getInput2() {
+	// (function getInput() {
 	// 	me.prompt({
-	// 		message: 'Which GitHub plugins would you like to install? (enter a comma-delimited list)',
-	// 		name: 'plugins2',
+	// 		message: 'Which WordPress plugins would you like to install? (enter a comma-delimited list)',
+	// 		name: 'plugins',
 	// 		filter: function(input) {
-	// 			var plugins2 = [],
+	// 			var plugins = [],
 	// 				items = input.split(',');
 	// 			for (var i in items) {
-	// 				plugins2.push(items[i].trim());
+	// 				plugins.push(items[i].trim());
 	// 			}
-	// 			return plugins2;
+	// 			return plugins;
 	// 		}
 	// 	}, function(input) {
-	// 		var plugins2 = input.plugins2;
-	// 		var len = plugins2.length;
+	// 		var plugins = input.plugins;
+	// 		var len = plugins.length;
 	// 		var next = function(i) {
-	// 			installPlugin(plugins2[i], function() {
+	// 			installPlugin(plugins[i], function() {
 	// 				if (i < len - 1) {
 	// 					next(++i);
 	// 				} else {
@@ -129,8 +97,40 @@ Generator.prototype.plugItInPlugItIn = function() {
 	// 	});
 	// })();
 	// 
-	// function installPlugin2(plugin2, cb2) {
-	// 	me.tarball('https://github.com/' + plugin2 + '/archive/master.zip', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins', plugin2), cb2);
+	// function installPlugin(plugin, cb) {
+	// 	me.tarball('https://downloads.wordpress.org/plugin/' + plugin + '.zip', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins', plugin), cb);
 	// }
+	
+	(function getInput2() {
+		me.prompt({
+			message: 'Which GitHub plugins would you like to install? (enter a comma-delimited list of {username/repository}):',
+			name: 'plugins2',
+			filter: function(input) {
+				var plugins2 = [],
+					items = input.split(',');
+				for (var i in items) {
+					plugins2.push(items[i].trim());
+				}
+				return plugins2;
+			}
+		}, function(input) {
+			var plugins2 = input.plugins2;
+			var len = plugins2.length;
+			var next = function(i) {
+				installPlugin2(plugins2[i], function() {
+					if (i < len - 1) {
+						next(++i);
+					} else {
+						done();
+					}
+				});
+			};
+			next(0);
+		});
+	})();
+	
+	function installPlugin2(plugin2, cb2) {
+		me.tarball('https://github.com/' + plugin2 + '/archive/master.zip', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins', plugin2), cb2);
+	}
 
 };
