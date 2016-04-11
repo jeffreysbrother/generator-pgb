@@ -66,71 +66,26 @@ Generator.prototype.plugItInPlugItIn = function() {
 	var done = this.async(),
 		me = this;
 
-	// Display welcome message
-	// this.logger.log(art.wp, {logPrefix: ''});
-	
+	// install WordPress plugins
 	(function getInput() {
-		me.prompt({
-			message: 'Which WordPress plugins would you like to install? (enter a comma-delimited list)',
-			name: 'plugins',
-			filter: function(input) {
-				var plugins = [],
-					items = input.split(',');
-				for (var i in items) {
-					plugins.push(items[i].trim());
+		var plugins = ['contact-form-7', 'updraftplus'];
+		var len = plugins.length;
+		var next = function(i) {
+			installPlugin(plugins[i], function() {
+				if (i < len - 1) {
+					next(++i);
+				} else {
+					done();
 				}
-				return plugins;
-			}
-		}, function(input) {
-			var plugins = input.plugins;
-			var len = plugins.length;
-			var next = function(i) {
-				installPlugin(plugins[i], function() {
-					if (i < len - 1) {
-						next(++i);
-					} else {
-						done();
-					}
-				});
-			};
-			next(0);
-		});
+			});
+		};
+		next(0);
 	})();
+	
 
 	function installPlugin(plugin, cb) {
 		me.tarball('https://downloads.wordpress.org/plugin/' + plugin + '.zip', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins', plugin), cb);
-	}
+	};
 	
-	// (function getInput2() {
-	// 	me.prompt({
-	// 		message: 'Which GitHub plugins would you like to install? (enter a comma-delimited list)',
-	// 		name: 'plugins2',
-	// 		filter: function(input) {
-	// 			var plugins2 = [],
-	// 				items = input.split(',');
-	// 			for (var i in items) {
-	// 				plugins2.push(items[i].trim());
-	// 			}
-	// 			return plugins2;
-	// 		}
-	// 	}, function(input) {
-	// 		var plugins2 = input.plugins2;
-	// 		var len = plugins2.length;
-	// 		var next = function(i) {
-	// 			installPlugin(plugins2[i], function() {
-	// 				if (i < len - 1) {
-	// 					next(++i);
-	// 				} else {
-	// 					done();
-	// 				}
-	// 			});
-	// 		};
-	// 		next(0);
-	// 	});
-	// })();
-	// 
-	// function installPlugin2(plugin2, cb2) {
-	// 	me.tarball('https://github.com/' + plugin2 + '/archive/master.zip', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins', plugin2), cb2);
-	// }
 
 };
