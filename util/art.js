@@ -23,7 +23,7 @@ chalk.rainbow = function(str) {
 module.exports = {
 	wp : [
 		'',
-		chalk.bold.red('                     YeoPress'),
+		chalk.bold.red('                       PGB'),
 		'',
 		chalk.grey('                 ..::::::::::::..'),
 		chalk.grey('             .:::   ')  + chalk.cyan('::::::::::')                          + chalk.grey('   ::..'),
