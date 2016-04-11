@@ -214,7 +214,7 @@ module.exports = function(advanced, defaults) {
 		}, {
 			message: 'Remote tarball url',
 			name: 'themeTarballUrl',
-			default: defaults.themeTarballUrl || 'https://github.com/wesleytodd/YeoPress/archive/template.tar.gz',
+			default: defaults.themeTarballUrl || 'https://github.com/jeffreysbrother/generator-pgb/archive/template-pgb.tar.gz',
 			validate: requiredValidate,
 			when: function(res) {
 				return !!res.installTheme && res.themeType == 'tar';
