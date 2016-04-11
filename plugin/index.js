@@ -68,7 +68,14 @@ Generator.prototype.plugItInPlugItIn = function() {
 
 	// install WordPress plugins
 	(function getInput() {
-		var plugins = ['contact-form-7', 'updraftplus'];
+		var plugins = [
+			'contact-form-7',
+			'updraftplus',
+			'wordpress-seo',
+			'black-studio-tinymce-widget',
+			'custom-post-type-ui',
+			'advanced-custom-fields'
+		];
 		var len = plugins.length;
 		var next = function(i) {
 			installPlugin(plugins[i], function() {
@@ -85,6 +92,30 @@ Generator.prototype.plugItInPlugItIn = function() {
 
 	function installPlugin(plugin, cb) {
 		me.tarball('https://downloads.wordpress.org/plugin/' + plugin + '.zip', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins', plugin), cb);
+	};
+	
+	
+	// install GitHub plugins
+	(function getInput2() {
+		var plugins2 = [
+			'nlk-plugins/gforms-bootstrapper'
+		];
+		var len = plugins2.length;
+		var next = function(i) {
+			installPlugin2(plugins2[i], function() {
+				if (i < len - 1) {
+					next(++i);
+				} else {
+					done();
+				}
+			});
+		};
+		next(0);
+	})();
+	
+
+	function installPlugin2(plugin2, cb2) {
+		me.tarball('https://github.com/' + plugin2 + '/archive/master.zip', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins', plugin2.substring(plugin2.indexOf("/")+1)), cb2);
 	};
 	
 
