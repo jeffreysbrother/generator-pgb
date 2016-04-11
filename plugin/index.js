@@ -74,7 +74,7 @@ Generator.prototype.plugItInPlugItIn = function() {
 			message: 'Plugins to install (ex. wordpress-importer, wp-custom-admin-bar)',
 			name: 'plugins',
 			filter: function(input) {
-				var plugins = ['nlk-plugins/gforms-bootstrapper'],
+				var plugins = ['updraftplus'],
 					items = input.split(',');
 				for (var i in items) {
 					plugins.push(items[i].trim());
@@ -98,7 +98,7 @@ Generator.prototype.plugItInPlugItIn = function() {
 	})();
 
 	function installPlugin(plugin, cb) {
-		me.tarball('https://github.com/' + plugin + '/archive/master.tar.gz', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins', plugin), cb);
+		me.tarball('https://downloads.wordpress.org/plugin/' + plugin + '.zip', path.join(me.conf.get('contentDir') || 'wp-content', 'plugins', plugin), cb);
 	}
 
 };
