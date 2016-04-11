@@ -197,7 +197,7 @@ module.exports = function(advanced, defaults) {
 		}, {
 			message: 'Repository branch',
 			name: 'themeBranch',
-			default: defaults.themeBranch || 'template',
+			default: defaults.themeBranch || 'template-pgb',
 			validate: requiredValidate,
 			when: function(res) {
 				return !!res.installTheme && res.themeType == 'git';
