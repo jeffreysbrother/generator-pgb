@@ -141,7 +141,7 @@ module.exports = function(advanced, defaults) {
 		}, {
 			message: 'Destination directory',
 			name: 'themeDir',
-			default: defaults.themeDir || 'yeopress',
+			default: defaults.themeDir || 'pgb',
 			validate: requiredValidate,
 			when: function(res) {
 				return !!res.installTheme;
