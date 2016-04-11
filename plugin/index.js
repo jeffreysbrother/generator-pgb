@@ -71,7 +71,7 @@ Generator.prototype.plugItInPlugItIn = function() {
 	
 	(function getInput() {
 		me.prompt({
-			message: 'Which plugins would you like to install? (enter a comma-delimited list)',
+			message: 'Which WordPress plugins would you like to install? (enter a comma-delimited list)',
 			name: 'plugins',
 			filter: function(input) {
 				var plugins = [],
